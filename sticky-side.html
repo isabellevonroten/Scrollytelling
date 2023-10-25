@@ -3,29 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Scrollama: Sticky Overlay Example</title>
-    <meta name="description" content="Scrollama: Sticky Overlay Example" />
+    <title>Scrollama: Sticky Side Example</title>
+    <meta name="description" content="Scrollama: Sticky Side Example" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <style>
       #scrolly {
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         background-color: #f3f3f3;
         padding: 1rem;
       }
 
+      #scrolly > * {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
 
       article {
         position: relative;
-        padding: 0;
+        padding: 0 1rem;
         max-width: 20rem;
-        margin: 0 auto;
       }
 
       .sticky-thing {
         position: -webkit-sticky;
         position: sticky;
-        left: 0;
         width: 100%;
         margin: 0;
         background-color: #8a8a8a;
@@ -36,32 +42,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Hintergrund */
-        background-image: url('images/BCD6350C-6BE0-4543-B92D-2C32B156D7B3.JPG');
-        background-size: cover;
-        background-position: center center;
       }
 
-      
-
       .sticky-thing p {
+        padding: 1rem;
         font-size: 8rem;
         font-weight: 900;
         color: #fff;
       }
 
       .step {
-        margin: 0 auto 15rem auto;
+        margin: 0 auto 2rem auto;
+        background-color: #3b3b3b;
         color: #fff;
-        background-color: rgba(0, 0, 0, 0.1);
       }
 
       .step:last-child {
         margin-bottom: 0;
       }
 
-      .step.is-active p {
-        background-color: rgb(124 225 148 / 80%);
+      .step.is-active {
+        background-color: goldenrod;
         color: #3b3b3b;
       }
 
@@ -69,7 +70,6 @@
         text-align: center;
         padding: 1rem;
         font-size: 1.5rem;
-        background-color: #1ec846a1;
       }
     </style>
   </head>
@@ -87,53 +87,48 @@
         </div>
       </nav>
       <section id="intro">
-        <h1 class="intro__hed">Sticky Overlay Example</h1>
+        <h1 class="intro__hed">Sticky Side Example</h1>
         <p class="intro__dek">
           Start scrolling to see how it works.
         </p>
       </section>
 
-      <!-- Hintergrund der kleben bleibt -->
       <section id="scrolly">
-        <div class="sticky-thing">
-          <p>0</p>
-        </div>
-
-      <!-- Elemente die darüber scrollen -->
         <article>
-          <div class="step" data-step="1" data-color="violet">
+          <div class="step" data-step="1">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="2" data-color="green">
+          <div class="step" data-step="2">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="3" data-color="red">
+          <div class="step" data-step="3">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="4" data-color="blue">
+          <div class="step" data-step="4">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </article>
-      </section>
-      
 
-        <!-- Weisser rand unten - damit die Trigger Line auch wirklich die Elemente berührt -->
+        <div class="sticky-thing">
+          <p>0</p>
+        </div>
+      </section>
+
       <section id="outro"></section>
     </main>
 
     <!-- <div class='debug'></div> -->
-     <!-- hilft beim Erkennen wenn ein Element, nächstes berührt -->
-     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script>
-      // DOM 
+      // using d3 for convenience
       var main = document.querySelector("main");
       var scrolly = main.querySelector("#scrolly");
       var sticky = scrolly.querySelector(".sticky-thing");
       var article = scrolly.querySelector("article");
       var steps = article.querySelectorAll(".step");
 
-      // Benutze Scrollama Library
+      // initialize the scrollama
       var scroller = scrollama();
 
       // scrollama event handlers
@@ -141,28 +136,21 @@
         // response = { element, direction, index }
         var el = response.element;
 
-        // entferne is-active von allen Steps
-        // dann füge is-active zu diesem Step hinzu
+        // remove is-active from all steps
+        // then add is-active to this step
         steps.forEach(step => step.classList.remove('is-active'));
         el.classList.add('is-active');
 
-        // sticky Hintergrund verändern:
-        // aktualisiere Grafik auf der Grundlage des Steps
-        // benutze "template literals" mit backticks
-        sticky.querySelector("p").innerText = `Tag ${el.dataset.step}`;
-        sticky.style.backgroundColor = el.dataset.color;
-        sticky.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
+        // update graphic based on step
+        sticky.querySelector("p").innerText = el.dataset.step;
       }
 
       function init() {
-        // 2. setup the scroller passing options
-        // 		this will also initialize trigger observations
-        // 3. bind scrollama event handlers (this can be chained like below)
         scroller
           .setup({
             step: "#scrolly article .step",
             offset: 0.33,
-            debug: false
+            debug: true
           })
           .onStepEnter(handleStepEnter);
 
