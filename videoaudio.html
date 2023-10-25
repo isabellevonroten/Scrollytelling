@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Heimat finden: Meine Reise zurück in den Libanon</title>
+    <meta name="description" content="Scrollama: Sticky Side Example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
     <title>Scrollytelling mit Video und Audio</title>
 </head>
+
 <body>
-    <header>
-        <h1>Scrollytelling mit Video und Audio</h1>
-    </header>
     <main>
+        <nav>
+            <div class="nav__examples">
+                <p>Scrollytelling:</p>
+                <a href="basic.html">Basic</a>
+                <a href="sticky-side.html">Sticky Side</a>
+                <a href="sticky-overlay.html">Sticky Overlay</a>
+                <a href="videoaudio.html">Video und Audio</a>
+            </div>
+        </nav>
+        <section id="intro">
+            <h1 class="intro__hed">Storytelling mit Video und Audio</h1>
+            <p class="intro__dek">
+                Dies sind meine Erlebnisse.
+            </p>
+        </section>
+
         <section id="video-section">
             <h2>Video</h2>
-            <video controls width="640" height="360">
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <!-- Einbetten des YouTube-Videos -->
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/45MPBTVQqqo" frameborder="0" allowfullscreen></iframe>
         </section>
 
         <section id="audio-section">
