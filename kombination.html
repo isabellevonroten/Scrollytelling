@@ -24,8 +24,7 @@
         -ms-flex: 1;
         flex: 1;
       }
-
-      article {
+      .article1{
         position: relative;
         padding: 0 1rem;
         max-width: 20rem;
@@ -75,7 +74,7 @@
       }
 
     /* Styling Video */
-           #video-container {
+        #video-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -88,6 +87,13 @@
         position: relative;
         background-color: #f3f3f3;
         padding: 1rem;
+      }
+    
+      .article2{
+        position: relative;
+        padding: 0;
+        max-width: 20rem;
+        margin: 0 auto;
       }
 
     .sticky-thing-2 {
@@ -161,7 +167,7 @@
       </section>
 
       <section id="scrolly">
-        <article>
+        <article class="article1">
           <div class="step" data-step="1">
             <p>Wir Menschen sind komplexe, facettenreiche, widersprüchliche Wesen und genau so ist die Welt da draußen.</p>
           </div>
@@ -195,17 +201,17 @@
         </div>
 
          <!-- Elemente die darüber scrollen -->
-         <article>
-            <div class="step2" data-step="1" data-color="violet">
+         <article class="article2">
+            <div class="step2" data-step="5" data-color="violet">
               <p>„Am Anfang Ihres Berichtes sollten Sie zuerst einmal das Reiseziel vorstellen oder mindestens kurz auf die geografische Lage und das Klima eingehen.“</p>
             </div>
-            <div class="step2" data-step="2" data-color="green">
+            <div class="step2" data-step="6" data-color="green">
               <p>#1 Lese viel, schreibe mehr. Dazu muss man nicht viel sagen. Übung macht den Meister.</p>
             </div>
-            <div class="step2" data-step="3" data-color="red">
+            <div class="step2" data-step="7" data-color="red">
               <p>#2 Gehe mit offenen Augen durch die Welt. Gutes Schreiben hat viel mit Detailarbeit zu tun. Lerne auf Kleinigkeiten zu achten. Beobachte deine Umgebung genau, vor allem die Menschen. Achte darauf, was sie einzigartig macht. Kauf dir ein Notizbuch (oder nimm ’ne Notizen-App) und halte fest: Dinge, bei denen du schmunzeln musst, kuriose Alltagsbegegnungen und vermeintliche Kleinigkeiten, die dir den ganzen Tag durch den Kopf gehen.</p>
             </div>
-            <div class="step2" data-step="4" data-color="blue">
+            <div class="step2" data-step="8" data-color="blue">
               <p>#3 Respektiere deinen Text. Lies ihn mehrfach. Auch mit den Augen eines Fremden. Vermeide Rechtschreibfehler, achte auf Absätze und die Struktur. Hol dir Feedback von anderen ein, wie wirkt der Text auf sie?</p>
             </div>
           </article>
@@ -221,50 +227,71 @@
     <script>
       // using d3 for convenience
       var main = document.querySelector("main");
-      var scrolly = main.querySelector("#scrolly");
-      var sticky = scrolly.querySelector(".sticky-thing");
-      var article = scrolly.querySelector("article");
-      var steps = article.querySelectorAll(".step");
+  var scrolly = main.querySelector("#scrolly");
+  var sticky1 = scrolly.querySelector(".sticky-thing");
+  var article1 = scrolly.querySelector("article");
+  var steps1 = article1.querySelectorAll(".step");
 
-      // initialize the scrollama
-      var scroller = scrollama();
+  var scroller1 = scrollama();
 
-      // scrollama event handlers
-      function handleStepEnter(response) {
-        // response = { element, direction, index }
-        var el = response.element;
+  function handleStepEnter1(response) {
+    var el = response.element;
 
-        // remove is-active from all steps
-        // then add is-active to this step
-        steps.forEach(step => step.classList.remove('is-active'));
-        el.classList.add('is-active');
+    steps1.forEach(step => step.classList.remove('is-active'));
+    el.classList.add('is-active');
 
-          // sticky Hintergrund verändern:
-        // aktualisiere Grafik auf der Grundlage des Steps
-        // benutze "template literals" mit backticks
-        sticky.querySelector("p").innerText = `Tag ${el.dataset.step}`;
-        sticky.style.backgroundColor = el.dataset.color;
-        sticky.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
-      }
+    sticky1.querySelector("p").innerText = `Tag ${el.dataset.step}`;
+    sticky1.style.backgroundColor = el.dataset.color;
+    sticky1.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
+  }
 
-      function init() {
-        // 2. setup the scroller passing options
-        // 		this will also initialize trigger observations
-        // 3. bind scrollama event handlers (this can be chained like below)
-        scroller
-          .setup({
-            step: "#scrolly article .step",
-            offset: 0.33,
-            debug: false
-          })
-          .onStepEnter(handleStepEnter);
+  function init1() {
+    scroller1
+      .setup({
+        step: "#scrolly article .step",
+        offset: 0.33,
+        debug: false
+      })
+      .onStepEnter(handleStepEnter1);
 
-        // setup resize event
-        window.addEventListener("resize", scroller.resize);
-      }
+    window.addEventListener("resize", scroller1.resize);
+  }
 
-      // kick things off
-      init();
+  init1();
     </script>
+
+<script>
+    var scrolly2 = main.querySelector("#scrolly-2");
+    var sticky2 = scrolly2.querySelector(".sticky-thing-2");
+    var article2 = scrolly2.querySelector("article");
+    var steps2 = article2.querySelectorAll(".step2");
+  
+    var scroller2 = scrollama();
+  
+    function handleStepEnter2(response) {
+      var el = response.element;
+  
+      steps2.forEach(step => step.classList.remove('is-active'));
+      el.classList.add('is-active');
+      sticky2.querySelector("p").innerText = `Tag ${el.dataset.step}`;
+      sticky2.style.backgroundColor = el.dataset.color;
+      sticky2.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
+    }
+  
+    function init2() {
+      scroller2
+        .setup({
+          step: "#scrolly-2 article .step2",
+          offset: 0.33,
+          debug: false
+        })
+        .onStepEnter(handleStepEnter2);
+  
+      window.addEventListener("resize", scroller2.resize);
+    }
+  
+    init2();
+  </script>
+
   </body>
 </html>
