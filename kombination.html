@@ -172,9 +172,9 @@
 
       <section id="scrolly">
         <article class="article1">
-          <div class="step" data-step="1" data-img="images/AdobeStock_118697922.jpeg">
-            <p>Wir Menschen sind komplexe, facettenreiche, widersprüchliche Wesen und genau so ist die Welt da draußen.</p>
-          </div>
+          <div class="step" data-step="1">
+              <p>Wir Menschen sind komplexe, facettenreiche, widersprüchliche Wesen und genau so ist die Welt da draußen.</p>
+            </div>
           <div class="step" data-step="2">
             <p>Was hat das mit Reiseberichten zu tun? Nun, solche Allgemeinaussagen wirken gerade hier extrem langweilig. Da hatte man eben eine „beschwerliche Anreise“, aber später hat dann der „wunderschöne Sonnenuntergang“ für einen „anstrengenden Aufstieg entschädigt.“ Es ist verlockend so zu formulieren, weil es schnell von der Hand geht und irgendwie auch stimmt.</p>
           </div>
@@ -188,6 +188,8 @@
 
         <div class="sticky-thing">
           <p>0</p>
+          <img src="/images/AdobeStock_118697922.jpeg" alt="" width="400">
+          
         </div>
       </section>
 
@@ -254,7 +256,7 @@
     steps1.forEach(step => step.classList.remove('is-active'));
     el.classList.add('is-active');
 
-    sticky1.querySelector("p").innerText = `Tag ${el.dataset.step}`;
+    sticky1.querySelector("img").scr = "images/AdobeStock_118697922.jpeg";
     sticky1.style.backgroundColor = el.dataset.color;
     sticky1.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
   }
@@ -272,7 +274,10 @@
   }
 
   init1();
+
     </script>
+
+    
 
 <script>
     var scrolly2 = main.querySelector("#scrolly-2");
