@@ -187,8 +187,6 @@
         </article>
 
         <div class="sticky-thing">
-          <p>0</p>
-          <img src="images/AdobeStock_118697922.jpeg" alt="" width="400">
           
         </div>
       </section>
@@ -310,6 +308,69 @@
     }
   
     init2();
+
+// Bilder hinterlegen, die sich dann ändern beim Scrollen. 
+
+    var bgImages = [
+    "/images/AdobeStock_611133874.jpeg",
+    "/images/AdobeStock_243486627.jpeg",
+    "/images/AdobeStock_118697922.jpeg",
+    "/images/AdobeStock_107853935.jpeg"
+];
+
+window.onscroll = function () {
+    myFunction();
+};
+
+function myFunction() {
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    var scrollyDiv = document.querySelector(".sticky-thing");
+
+    var index = Math.floor(scrollTop / (window.innerHeight * 0.33));
+    index = Math.min(index, bgImages.length - 1);
+
+    scrollyDiv.style.backgroundImage = "url(" + bgImages[index] + ")";
+    scrollyDiv.style.backgroundSize = "cover";
+}
+
+// Initialisierung der Scrollama-Funktion für den ersten Abschnitt
+var main = document.querySelector("main");
+var scrolly = main.querySelector("#scrolly");
+var sticky1 = scrolly.querySelector(".sticky-thing");
+var article1 = scrolly.querySelector("article");
+var steps1 = article1.querySelectorAll(".step");
+
+var scroller1 = scrollama();
+
+function handleStepEnter1(response) {
+    var el = response.element;
+
+    steps1.forEach(step => step.classList.remove('is-active'));
+    el.classList.add('is-active');
+
+    sticky1.querySelector("p").innerText = `Tag ${el.dataset.step}`;
+    sticky1.style.backgroundColor = el.dataset.color;
+    sticky1.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
+
+    // Rufe die Hintergrundbild-Änderungsfunktion auf
+    myFunction();
+}
+
+function init1() {
+    scroller1
+        .setup({
+            step: "#scrolly article .step",
+            offset: 0.33,
+            debug: false
+        })
+        .onStepEnter(handleStepEnter1);
+
+    window.addEventListener("resize", scroller1.resize);
+}
+
+init1();
+
+
   </script>
 
   </body>
