@@ -12,7 +12,7 @@
        
          
        
-       /* Styling Sticky Side */
+       /* Styling Sticky Side left */
       #scrolly {
         position: relative;
         display: -webkit-box;
@@ -147,6 +147,69 @@
 
       .step2 p {
         text-align: center;
+        padding: 2%;
+        font-size: 16px;
+      }
+
+             /* Styling Sticky Side right */
+        #scrolly-right {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background-color: #1a1a1a;
+        padding: 1rem;
+      }
+
+      #scrolly3 > * {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+      .article3{
+        position: relative;
+        padding: 0 1rem;
+        max-width: 30rem;
+      }
+      
+        .sticky-thing-3 {
+        position: -webkit-sticky;
+        position: sticky;
+        width: 100%;
+        margin: 0;
+        background-color: #454444;
+        z-index: 0;
+        top: 12.5vh;
+        height: 75vh;
+        /* Center everything inside */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+        .sticky-thing-3 p {
+        text-align: left;
+        padding: 2%;
+        font-size: 24px;
+      }
+
+      .step3 {
+        margin: 0 auto 2rem auto;
+        background-color: #3b3b3b;
+        color: #fff;
+      }
+
+      .step3:last-child:last-child {
+        margin-bottom: 0;
+      }
+
+      .step3.is-active {
+        background-color: #576739;
+        color: white;
+      }
+
+      .step3 p {
+        text-align: left;
         padding: 2%;
         font-size: 16px;
       }
@@ -288,6 +351,51 @@
                 jede zweite.</p>
             </div>
           </article>
+        </section>
+
+        <section id="scrolly-right">
+          <article class="article3">
+            <p class="Einleitung">Wie alles begann..</p>
+            <div class="step3">
+                <p>Es war kurz vor Weihnachten im Jahr 1994 als in einem kleinen Bergdorf im Kanton Wallis das Telefon klingelte. 
+                  Am anderen Ende war eine Frau aus Beirut. Sie arbeitete damals für das Kinderheim St. Michel. 
+                  2 Wochen später, im Januar 1995 packten meine Eltern ihre Koffer und flogen über Zypern nach Beirut. 
+                  Unsere erste Begegnung wurde natürlich festgehalten. Nach 2 gemeinsamen Wochen im Libanon wurde die Rückreise 
+                  angetreten. Zu dieser Zeit herrschte ein Schneesturm in der Schweiz und die Züge ins Wallis fuhren nicht. </p>
+              </div>
+            <div class="step3">
+              <p>Das sagt sich so einfach: "Adoptivkinder haben ein Recht auf ihre Geschichte." Aber wie soll was und wann dem Kind 
+                erzählt werden? Lena Schröder hat dieses Buch aufgrund ihrer eigenen Erfahrungen als Adoptivmutter von mittlerweile 
+                erwachsenen Kindern sowie der Kontakte mit Jugendämtern und anderen Adoptiveltern geschrieben. 
+                Mit leicht verständlichen Worten zeigt sie, wie Adoptiveltern ihrem Kind Schritt für Schritt die eigene Geschichte 
+                erzählen oder Briefe für einen ersten schriftlichen Kontakt zur Herkunftsfamilie schreiben können. 
+                Adoptiveltern erhalten dadurch konkrete Hilfen für den Adoptionsalltag und gleichzeitig die Möglichkeit, 
+                eigene Gefühle zu sortieren.</p>
+            </div>
+            <div class="step3">
+              <p>„Es geht darum, alles, was man darstellen möchte, lang genug zu betrachten, um darin einen Aspekt zu entdecken, 
+                der noch nie von jemandem erkannt und ausgesprochen wurde. In allem liegt Neuland, weil wir gewohnt sind, 
+                unsere Augen nur mit Erinnerung an das zu nutzen, was vor uns über den Gegenstand unserer Betrachtung gedacht wurde.
+               In der geringsten Sache steckt etwas Unbekanntes. Finden wir es. Mein Tipp: Zoome entweder ganz nah ein oder 
+               ganz weit aus. Aber hüte dich vor der Mitte der Absraktionsleiter.“</p>
+            </div>
+            <div class="step3">
+              <p>Am Anfang war der Kindervorschlag .....
+                Unsere Aktivitäten hatten von nun an ein Ziel „Wir bekommen ein Kind!“.
+                Natürlich wollten wir alles so schön wie möglich vorbereiten. Mit Hilfe diverser Adoptionsliteratur hatten wir 
+                uns schon lange umfassend informiert und wußten wie wichtig es ist, gerade im Ausland alle Spuren und Wurzeln 
+                des Kindes festzuhalten. Nun brauchte es nur noch eine Form ...
+                ... und damit begann eine Suche, die 5 Jahre dauerte .. Was haben wir uns geärgert, dass es die wunderschönsten 
+                Babyalben gibt und alle sind für Adoptivkinder nicht zu gebrauchen. Und wir waren damit nicht die einzigen!
+                Es entstand das "Tagebuch für Adoptivkinder" (speziell für die Auslandsadoption). Aufgrund unserer Erfahrungen 
+                im „Tagebuch-Schreiben“ in „irgendeine schöne Kladde“ vor, während und nach unseren beiden Adoptionen 
+                gestalteten wir dieses Album einzig für Adoptivkinder aus dem Ausland mit vielen Details zum Ablauf 
+                sowie Platz für Fotos und Erinnerungen an die ganz besondere erste Zeit als Familie.</p>
+            </div>
+          </article>
+  
+          <div class="sticky-thing-3">
+          </div>
         </section>
 
         <div id="video-container-2">
