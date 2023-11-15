@@ -69,7 +69,7 @@ var bgImages = [
   "/images/AdobeStock_611133874.jpeg",
   "/images/AdobeStock_243486627.jpeg",
   "/images/AdobeStock_118697922.jpeg",
-  "/images/AdobeStock_107853935.jpeg"
+  "/images/AdobeStock_107853935.jpeg",
 ];
 
 function preloadImages() {
