@@ -66,10 +66,10 @@ function init2() {
 init2();
 
 var bgImages = [
-  "/images/AdobeStock_611133874.jpeg",
-  "/images/AdobeStock_243486627.jpeg",
-  "/images/AdobeStock_118697922.jpeg",
-  "/images/AdobeStock_107853935.jpeg",
+  "/images/IMG_9518.jpg",
+  "/images/IMG_9523.jpg",
+  "/images/IMG_9524.jpg",
+  "/images/IMG_9521.jpg",
 ];
 
 function preloadImages() {
@@ -89,7 +89,7 @@ function myFunction() {
   var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   var scrollyDiv = document.querySelector(".sticky-thing");
 
-  var index = Math.floor(scrollTop / (window.innerHeight * 0.33));
+  var index = Math.floor(scrollTop / (window.innerHeight * 0.50));
   index = Math.min(index, bgImages.length - 1);
 
   scrollyDiv.style.backgroundImage = "url(" + bgImages[index] + ")";
