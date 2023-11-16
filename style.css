@@ -121,6 +121,21 @@
             animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   }
 
+  .credit{
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    opacity: 80%;
+    }
+
+  footer{
+    display: grid;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  
+  }
+
   @-webkit-keyframes tracking-in-expand {
     0% {
       letter-spacing: -0.5em;
