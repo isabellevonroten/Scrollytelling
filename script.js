@@ -30,38 +30,7 @@ function init1() {
 
 init1(); 
 
-// Sticky Bilder Abschnitt 1 ändern
 
-var bgImages = [
-  "/images/IMG_9518.jpg",
-  "/images/IMG_9523.jpg",
-  "/images/IMG_9524.jpg",
-  "/images/IMG_9521.jpg",
-];
-
-function preloadImages() {
-  bgImages.forEach(function (imgSrc) {
-    var img = new Image();
-    img.src = imgSrc;
-  });
-}
-
-preloadImages();
-
-window.onscroll = function () {
-  myFunction();
-};
-
-function myFunction() {
-  var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-  var scrollyDiv = document.querySelector(".sticky-thing");
-
-  var index = Math.floor(scrollTop / (window.innerHeight * 0.50));
-  index = Math.min(index, bgImages.length - 1);
-
-  scrollyDiv.style.backgroundImage = "url(" + bgImages[index] + ")";
-  scrollyDiv.style.backgroundSize = "cover";
-}
 
 // Sticky 2 Scroll Element
 
@@ -127,7 +96,14 @@ function init3() {
 
 init3();
 
-// Sticky Bilder Abschnitt 3 ändern
+//Bilder Sticky 1 und 3
+
+var bgImages = [
+  "/images/IMG_9518.jpg",
+  "/images/IMG_9523.jpg",
+  "/images/IMG_9524.jpg",
+  "/images/IMG_9521.jpg",
+];
 
 var bgImages3 = [
   "/images/AdobeStock_107853935.jpeg",
@@ -136,29 +112,37 @@ var bgImages3 = [
   "/images/AdobeStock_243486627.jpeg",
 ];
 
-function preloadImages3() {
-  bgImages3.forEach(function (imgSrc) {
+function preloadImages(images) {
+  images.forEach(function (imgSrc) {
     var img = new Image();
     img.src = imgSrc;
   });
 }
 
-preloadImages3();
+preloadImages(bgImages);
+preloadImages(bgImages3);
 
 window.onscroll = function () {
+  myFunction();
   myFunction3();
 };
+
+function myFunction() {
+  var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+  var scrollyDiv = document.querySelector(".sticky-thing");
+  var index = Math.floor(scrollTop / (window.innerHeight * 0.50));
+  index = Math.min(index, bgImages.length - 1);
+
+  scrollyDiv.style.backgroundImage = "url(" + bgImages[index] + ")";
+  scrollyDiv.style.backgroundSize = "cover";
+}
 
 function myFunction3() {
   var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   var scrollyDiv3 = document.querySelector(".sticky-thing-3");
-
   var index3 = Math.floor(scrollTop / (window.innerHeight * 0.50));
   index3 = Math.min(index3, bgImages3.length - 1);
 
   scrollyDiv3.style.backgroundImage = "url(" + bgImages3[index3] + ")";
   scrollyDiv3.style.backgroundSize = "cover";
 }
-
-
-
