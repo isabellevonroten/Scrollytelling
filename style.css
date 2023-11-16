@@ -42,8 +42,12 @@
     font-weight: 300;
     font-family: 'Poppins ExtraLight', sans-serif;
   }
-  h3,
-  h4,
+  
+  .zurautorin {
+    font-size: 30px;
+  }
+
+
   a {
     margin: 0;
     font-weight: 400;
@@ -168,3 +172,78 @@
     }
   }
   
+  h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .zurautorin {
+    font-size: 20px;
+  }
+
+  nav {
+    padding-right: 2rem;
+  }
+
+  .nav__examples {
+    margin-top: 0;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    padding: 5px;
+    margin: 0;
+    font-size: 90%;
+  }
+
+
+  #intro {
+    max-width: 90%;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .intro__hed {
+    font-size: 1.5em;
+    margin: 1rem auto 0.5rem auto;
+  }
+
+  .intro__dek {
+    font-size: 14px;
+  }
+
+  footer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .credit {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .author-image {
+    width: 50%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .author-text {
+    padding: 0 10px;
+    margin-right: 0;
+  }
+
+  .article1,
+  .article2,
+  .article3 {
+    padding: 0 10px;
+  }
