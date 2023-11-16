@@ -1,6 +1,4 @@
-// script.js
-
-// using d3 for convenience
+// sticky1 scroll Element 
 var main = document.querySelector("main");
 var scrolly = main.querySelector("#scrolly");
 var sticky1 = scrolly.querySelector(".sticky-thing");
@@ -15,9 +13,7 @@ function handleStepEnter1(response) {
   steps1.forEach(step => step.classList.remove('is-active'));
   el.classList.add('is-active');
 
-  sticky1.querySelector("p").innerText = `Tag ${el.dataset.step}`;
   sticky1.style.backgroundColor = el.dataset.color;
-  sticky1.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
 }
 
 function init1() {
@@ -32,38 +28,9 @@ function init1() {
   window.addEventListener("resize", scroller1.resize);
 }
 
-init1();
+init1(); 
 
-var scrolly2 = main.querySelector("#scrolly-2");
-var sticky2 = scrolly2.querySelector(".sticky-thing-2");
-var article2 = scrolly2.querySelector("article");
-var steps2 = article2.querySelectorAll(".step2");
-
-var scroller2 = scrollama();
-
-function handleStepEnter2(response) {
-  var el = response.element;
-
-  steps2.forEach(step => step.classList.remove('is-active'));
-  el.classList.add('is-active');
-  sticky2.querySelector("p").innerText = `Tag ${el.dataset.step}`;
-  sticky2.style.backgroundColor = el.dataset.color;
-  sticky2.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
-}
-
-function init2() {
-  scroller2
-    .setup({
-      step: "#scrolly-2 article .step2",
-      offset: 0.33,
-      debug: false
-    })
-    .onStepEnter(handleStepEnter2);
-
-  window.addEventListener("resize", scroller2.resize);
-}
-
-init2();
+// Sticky Bilder Abschnitt 1 ändern
 
 var bgImages = [
   "/images/IMG_9518.jpg",
@@ -96,37 +63,102 @@ function myFunction() {
   scrollyDiv.style.backgroundSize = "cover";
 }
 
-var main = document.querySelector("main");
-var scrolly = main.querySelector("#scrolly");
-var sticky1 = scrolly.querySelector(".sticky-thing");
-var article1 = scrolly.querySelector("article");
-var steps1 = article1.querySelectorAll(".step");
+// Sticky 2 Scroll Element
 
-var scroller1 = scrollama();
+var scrolly2 = main.querySelector("#scrolly-2");
+var sticky2 = scrolly2.querySelector(".sticky-thing-2");
+var article2 = scrolly2.querySelector("article");
+var steps2 = article2.querySelectorAll(".step2");
 
-function handleStepEnter1(response) {
+var scroller2 = scrollama();
+
+function handleStepEnter2(response) {
   var el = response.element;
 
-  steps1.forEach(step => step.classList.remove('is-active'));
+  steps2.forEach(step => step.classList.remove('is-active'));
   el.classList.add('is-active');
+  sticky2.style.backgroundColor = el.dataset.color;
 
-  sticky1.querySelector("p").innerText = `Tag ${el.dataset.step}`;
-  sticky1.style.backgroundColor = el.dataset.color;
-  sticky1.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
-
-  myFunction();
 }
 
-function init1() {
-  scroller1
+function init2() {
+  scroller2
     .setup({
-      step: "#scrolly article .step",
+      step: "#scrolly-2 article .step2",
       offset: 0.33,
       debug: false
     })
-    .onStepEnter(handleStepEnter1);
+    .onStepEnter(handleStepEnter2);
 
-  window.addEventListener("resize", scroller1.resize);
+  window.addEventListener("resize", scroller2.resize);
 }
 
-init1();
+init2(); 
+
+// sticky3 scroll Element 
+var main = document.querySelector("main");
+var scrollyRight = main.querySelector("#scrolly-right");
+var sticky3 = scrollyRight.querySelector(".sticky-thing-3");
+var article3 = scrollyRight.querySelector(".article3");
+var steps3 = article3.querySelectorAll(".step3");
+
+var scroller3 = scrollama();
+
+function handleStepEnter3(response) {
+  var el = response.element;
+
+  steps3.forEach(step => step.classList.remove('is-active'));
+  el.classList.add('is-active');
+
+  sticky3.style.backgroundColor = el.dataset.color;
+}
+
+function init3() {
+  scroller3
+    .setup({
+      step: "#scrolly-right .step3",
+      offset: 0.33,
+      debug: false
+    })
+    .onStepEnter(handleStepEnter3);
+
+  window.addEventListener("resize", scroller3.resize);
+}
+
+init3();
+
+// Sticky Bilder Abschnitt 3 ändern
+
+var bgImages3 = [
+  "/images/AdobeStock_107853935.jpeg",
+  "/images/AdobeStock_118697922.jpeg",
+  "/images/AdobeStock_119580469.jpeg",
+  "/images/AdobeStock_243486627.jpeg",
+];
+
+function preloadImages3() {
+  bgImages3.forEach(function (imgSrc) {
+    var img = new Image();
+    img.src = imgSrc;
+  });
+}
+
+preloadImages3();
+
+window.onscroll = function () {
+  myFunction3();
+};
+
+function myFunction3() {
+  var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+  var scrollyDiv3 = document.querySelector(".sticky-thing-3");
+
+  var index3 = Math.floor(scrollTop / (window.innerHeight * 0.50));
+  index3 = Math.min(index3, bgImages3.length - 1);
+
+  scrollyDiv3.style.backgroundImage = "url(" + bgImages3[index3] + ")";
+  scrollyDiv3.style.backgroundSize = "cover";
+}
+
+
+
