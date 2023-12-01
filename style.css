@@ -336,11 +336,9 @@ footer {
   z-index: 0;
   top: 12.5vh;
   height: 75vh;
-  /* Center everything inside */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Bild */
   background-image: url("images/AdobeStock_243486627.jpeg");
   background-size: cover;
   background-position: center center;
