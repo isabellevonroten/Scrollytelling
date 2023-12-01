@@ -40,6 +40,8 @@ h2 {
   font-family: 'Poppins ExtraLight', sans-serif;
 }
 
+/* Titel Animation */
+
 .tracking-in-expand {
 	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both; /* für Chrome und Safari */
   -moz-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both; /* für Firefox */
@@ -148,8 +150,6 @@ nav {
 #outro {
   height: 640px;
 }
-
-
 
 .credit {
   color: white;
