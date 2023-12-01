@@ -1,4 +1,8 @@
 # Scrollytelling
+Idee:
+Für mein Lehrprojekt werde ich eine Scrollytelling-Seite machen, die meine Reise durch den Libanon dokumentiert mit Bildern, Text und Videos. Diese verschiedenen Elemente habe ich nun in diesem Projekt ausprobiert. 
+
+Vorgehensweise & Quellen:
 Begonnen mit Youtube Video: https://www.youtube.com/watch?v=d7wTA9F-l8c
 Dort gab es 3 verschiedene Seiten mit 3 verschiedenen Elementen:
 Basic, Sticky Side und Sticky Overlay.
