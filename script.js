@@ -1,3 +1,5 @@
+// Sticky 1 Scroll Element
+
 var main = document.querySelector("main");
 var scrolly = main.querySelector("#scrolly");
 var sticky1 = scrolly.querySelector(".sticky-thing");
